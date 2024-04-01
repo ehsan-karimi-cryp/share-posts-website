@@ -1,0 +1,15 @@
+.website-title {
+    text-align: center;
+    
+}
+.page-button {
+    background-color: #0dcaf03d !important;
+    margin: 1.5rem;
+}
+.page-button:hover {
+    background-color: #0dcaf08a !important;
+}
+.buttons-section {
+    display: flex;
+    justify-content: center;
+}
