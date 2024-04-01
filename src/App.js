@@ -1,6 +1,7 @@
 import { BrowserRouter , Routes , Route} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home"
+import IndexUser from "./pages/users/IndexUser";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
     <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/users" element={<IndexUser />}/>
       </Routes>
     
     </BrowserRouter>
