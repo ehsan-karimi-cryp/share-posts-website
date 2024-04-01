@@ -1,0 +1,8 @@
+.error-heading {
+    text-align: center;
+}
+.error-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
