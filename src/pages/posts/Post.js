@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
 
 function User() {
-  const [user, setUser] = useState(null);
+  const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { postID } = useParams();
@@ -12,14 +12,14 @@ function User() {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postID}`)
       .then((res) => res.json())
       .then((x) => {
-        setUser(x);
+        setPost(x);
         setLoading(false);
         setError(null);
       })
       .catch((err) => {
         setError(err);
         setLoading(false);
-        setUser(null);
+        setPost(null);
       });
   }, [postID]);
 
@@ -34,20 +34,17 @@ function User() {
           )}
           {error && <ErrorPage errorPage={error} />}
 
-          {user && (
-            <div className="card">
-              <div className="card-header">{user.name}</div>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">username: {user.username}</li>
-                <li className="list-group-item">email: {user.email}</li>
-                <li className="list-group-item">phone: {user.phone}</li>
-                <li className="list-group-item">website {user.website}</li>
-              </ul>
+          {post && (
+            <div className="col-md-8">
+              <div className="card">
+                <div className="card-header">{post.title}</div>
+                <ul className="card-body">{post.body}</ul>
+              </div>
             </div>
           )}
         </div>
-        <Link to="/users" className="btn btn-info mt-5">
-          Users
+        <Link to="/posts" className="btn btn-info mt-5">
+          Posts
         </Link>
       </section>
     </>
