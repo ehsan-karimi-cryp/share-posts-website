@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ErrorPage from "../ErrorPage";
 import ListPosts from "./ListPosts";
+import { Link } from "react-router-dom";
 
 function IndexPosts() {
   const [posts, setPosts] = useState(null);
@@ -27,6 +28,7 @@ function IndexPosts() {
       <div className="container mt-5">
         <div className="row g-3">
           <h3>Posts</h3>
+          <Link to="createpost" className="btn btn-dark">Create Post</Link>
           {loading && (
             <div className="spinner-border" role="status">
               <span className="visually-hidden">Loading...</span>
